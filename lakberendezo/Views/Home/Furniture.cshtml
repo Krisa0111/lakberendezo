@@ -1,4 +1,4 @@
-﻿@model lakberendezo.Models.RoomModel
+﻿@model lakberendezo.Models.FurnitureModel
 
 @{
     Layout = null;
@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Room sizes</title>
+    <title>Furnitures</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -72,8 +72,13 @@
 
 </head>
 <body>
-    <h1>Enter the size of the room</h1>
-    <form asp-action="process" method="post">
+    <h1>Add Furnitures</h1>
+    <form asp-action="ProcessFurniture" method="post">
+        <div class="form-group">
+            @Html.LabelFor(t => t.Name)
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
         <div class="form-group">
             @Html.LabelFor(t => t.Width)
             <input asp-for="Width" class="form-control" />

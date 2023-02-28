@@ -1,0 +1,52 @@
+﻿@model lakberendezo.Models.RoomModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>The Room</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        input[type="submit"] {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Here is the room</h1>
+    <table>
+        @for (int row = 0; row < Model.Matrix.GetLength(0); row++)
+        {
+            <tr>
+                @for (int col = 0; col < Model.Matrix.GetLength(1); col++)
+                {
+                    <td>@Model.Matrix[row, col]</td>
+                }
+            </tr>
+        }
+    </table>
+    <form asp-action="ProcessBackFromRoomToFurniture" method="post">
+        <div class="form-group">
+            <input type="submit" value="Add another furniture" />
+        </div>
+    </form>
+</body>
+</html>
